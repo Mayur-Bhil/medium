@@ -1,0 +1,13 @@
+import { getServerSession } from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import { DrizzleAdapter } from "@auth/drizzle-adapter"
+
+export const authOptions:any = {
+    adapter:DrizzleAdapter(),
+    providers:[
+        GoogleProvider({
+            clientId:process.env.GOOGLE_CLIENT_ID as string,
+            clientId:process.env.GOOGLE_CLIENT_SECRET as string,
+        }),
+    ],
+}
